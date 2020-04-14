@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { TestserviceService } from './testservice.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'test';
+  printText = '';
+  public testList = []
+
+  constructor(private _testserviceService : TestserviceService){
+
+  }
+  ngOnInit(){
+
+    this.testList = this._testserviceService.getTestList();
+
+  }
 }

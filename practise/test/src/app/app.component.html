@@ -1,1 +1,10 @@
 this is {{title}} page
+
+<input type="text" [(ngModel)]="printText">
+{{printText}}
+
+<h2 *ngIf="false"> h2 heading true</h2>
+
+<select>
+    <option *ngFor="let item of testList">{{item}}</option>
+</select>
