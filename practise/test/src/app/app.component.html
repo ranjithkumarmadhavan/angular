@@ -1,10 +1,16 @@
-this is {{title}} page
+<h1>ToDo list</h1>
 
-<input type="text" [(ngModel)]="printText">
-{{printText}}
+<input #newToDo type="text">
+<button (click)="AppendInToDoList(newToDo.value); newToDo.value=''">Submit</button>
 
-<h2 *ngIf="false"> h2 heading true</h2>
+<div *ngFor="let item of toDoList">
+    <input type="checkbox" name="{{item.task}}" value="item" [checked]="item.isDone" (change)="updateToDoList(item)">
+    <label for="{{item.task}}">{{item.task}}</label>
+    <b> {{item.isDone ? '&#10003;' : '&#10005;'}}</b>
+    <b><button (click)="removeFromToDoList(item)">remove</button></b> <br>
+</div>
 
+<br><br><br><br><br>
 <select>
     <option *ngFor="let item of testList">{{item}}</option>
 </select>
